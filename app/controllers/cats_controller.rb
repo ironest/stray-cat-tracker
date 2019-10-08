@@ -10,21 +10,25 @@ class CatsController < ApplicationController
     end
 
     def new
+        render plain: "New Cat Web-page"
     end
 
     def show
+        render plain: "Show Cat Web-page"
     end
     
     def update
     end
 
     def edit
+        render plain: "Edit Cat Web-page"
     end
 
     def destroy
     end
 
     def delete
+        render plain: "Delete Cat Web-page"
     end
 
     def setup_session_movies
