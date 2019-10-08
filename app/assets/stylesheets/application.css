@@ -78,6 +78,10 @@ header h3 {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: 'Mansalva', cursive;
+    color: #D87F31;
+    font-size: 40px;
+
 }
 
 .cat-component-title {
@@ -96,12 +100,6 @@ header h3 {
     padding: 8px 10px;
     transform: rotate(-15grad);
     overflow: hidden;
-}
-
-.empty-cat-component-title {
-    font-family: 'Mansalva', cursive;
-    color: #D87F31;
-    font-size: 40px;
 }
 
 .cat-component-pic {
