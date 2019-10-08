@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get  "/cats/:id", to: "cat#show", as: "cat"
 
   put "/cats/:id", to: "cats#update"
-  get "/cats/:id/edit", to: "cats#edit", as: "edit_cats"
+  get "/cats/:id/edit", to: "cats#edit", as: "edit_cat"
 
   delete "/cats/:id", to: "cats#destroy"
-  get "/cats/:id/delete", to: "cats#delete", as: "delete_cats"
+  get "/cats/:id/delete", to: "cats#delete", as: "delete_cat"
 
 
 
