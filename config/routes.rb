@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post "/cats", to: "cats#create"
   get  "/cats/new", to: "cats#new", as: "new_cat"
 
-  get  "/cats/:id", to: "cat#show", as: "cat"
+  get  "/cats/:id", to: "cats#show", as: "cat"
 
   put "/cats/:id", to: "cats#update"
   get "/cats/:id/edit", to: "cats#edit", as: "edit_cat"
