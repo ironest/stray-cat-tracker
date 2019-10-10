@@ -1,31 +1,23 @@
-<header>
-    <h1>
-        Stray Cat
-        <span>Tracker</span>
-    </h1>
+<div id="index">
 
-    <h3>Is there a stray cat in your area?</h3>
+    <div class="cat-component__container">
 
-</header>
+        <%=link_to("+", new_cat_path, class: "cat-component cat-component--empty")%>
 
-<div class="cat-component-container">
+        <% @cats.each_with_index do |cat, index| %>
 
+            <div class="cat-component">
+                <h2 class="cat-component__name"><%=cat["name"]%></h2>
+                <img class="cat-component__pic" src="https://robohash.org/<%=cat["img_id"]%>?set=set4">
+                <div class="cat-component__icon-container">
 
-    <%=link_to("+", new_cat_path, class: "empty-cat-component")%>
-
-    <% @cats.each_with_index do |cat, index| %>
-
-        <div class="cat-component">
-            <h2 class="cat-component-title"><%=cat["name"]%></h2>
-            <img class="cat-component-pic" src="https://robohash.org/<%=cat["img_id"]%>?set=set4">
-            <div class="cat-component-icon-container">
-
-                <%=link_to(image_tag("info.png", class: "cat-component-icon"), cat_path(index))%>
-                <%=link_to(image_tag("edit.png", class: "cat-component-icon"), edit_cat_path(index))%>
-                <%=link_to(image_tag("delete.png", class: "cat-component-icon"), delete_cat_path(index))%>
+                    <%=link_to(image_tag("info.png", class: "icon"), cat_path(index))%>
+                    <%=link_to(image_tag("edit.png", class: "icon"), edit_cat_path(index))%>
+                    <%=link_to(image_tag("delete.png", class: "icon"), delete_cat_path(index))%>
+                </div>
             </div>
-        </div>
 
-    <% end %>
+        <% end %>
 
+    </div>
 </div>
