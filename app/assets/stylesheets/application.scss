@@ -1,0 +1,222 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import url('https://fonts.googleapis.com/css?family=Mansalva|Raleway&display=swap');
+
+$browny-color: #723F12;
+$orangy-color: #D87F31;
+$salmony-color: #F2C39B;
+$whity-color: #DCE3F2;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    color: $browny-color;
+    text-decoration: none;
+}
+
+body {
+    background-color: $whity-color;
+}
+header {
+    margin-bottom: 40px;
+    h1 {
+        color: $orangy-color;
+        text-align: center;
+        margin: 20px;
+        span {
+            font-family: 'Mansalva', cursive;
+        }
+    }
+    h3 {
+        color: $browny-color;
+        text-align: center;
+        font-size: 18px;
+        margin: 0 20px;
+    }
+}
+
+#index {
+
+    .cat-component__container {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+        max-width: 640px;
+
+        @media only screen and (min-width: 640px) {
+            justify-content: flex-start;
+        }
+
+        .cat-component {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            border-radius: 10px;
+            margin: 20px 15px 30px;
+    
+            &__name {
+                font-family: 'Mansalva', cursive;
+                color: $whity-color;
+                font-size: 18px;
+                text-align: center;
+                margin-bottom: -8px;
+                font-weight: bold;
+                line-height: 16px;
+                background-color: $orangy-color;
+                padding: 8px;
+                border-radius: 10px;
+                width: 110px;
+                height: 18px;
+                padding: 8px 10px;
+                transform: rotate(-15grad);
+                overflow: hidden;
+            }
+    
+            &__pic {
+                width: 100px;
+                height: 100px;
+                background-color: $salmony-color;
+                padding: 10px;
+                border-radius: 10px;
+            }
+    
+            &__icon-container {
+                margin-top: 6px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                width: 100%;
+    
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 3px;
+                    background-color: $salmony-color;
+                    padding: 8px;
+                    border-radius: 10px;
+                    transition: all .2s ease-in-out;
+                }
+
+                .icon:hover {
+                    transform: scale(1.2);
+                    background-color: $orangy-color;
+                }
+    
+            }
+    
+            &--empty {
+                border: 2px dashed $orangy-color;
+                background-color: $salmony-color; /*rgba(242, 196, 155, 0.3);*/
+                width: 126px;
+                height: 116px;
+                margin-top: 46px;
+                justify-content: center;
+                font-family: 'Mansalva', cursive;
+                color: $orangy-color;
+                font-size: 40px;
+                transition: all .2s ease-in-out;
+            }
+
+            &--empty:hover {
+                /*transform: scale(1.2);*/
+                font-size: 60px;
+            }
+    
+        }
+
+    }
+
+}
+
+#new {
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    .new-cat-component {
+        background-color: $salmony-color;
+        width: 270px;
+        border-radius: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        padding: 10px 20px;
+        margin: 0 auto;
+
+        @media only screen and (min-width: 640px) {
+            width: 300px;
+            padding: 10px 70px;
+        }
+
+        &__row {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                flex-basis: 70px;
+            }
+    
+            input {
+                flex-grow: 1;
+                padding: 3px;
+            }
+
+            input[type=submit] {
+                flex-grow: 0;
+                flex-basis: 40%;
+                font-size: 15px;
+                margin-top: 5px;
+                // margin-left: 70px;
+                background-color: $whity-color;
+            }
+
+            .pic {
+                margin: 0 auto;
+                background: rgba(0, 0, 0, 0.1);
+                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.25);
+
+                border-radius: 10px;
+
+                width: 100px;
+                height: 100px;
+                padding: 10px;
+                
+                &--empty {
+                    width: 40px;
+                    height: 40px;
+                    padding: 40px;
+                }
+            }
+        }
+    }
+
+    .back-button {
+        background-color: $salmony-color;
+        padding: 8px 15px;
+        border-radius: 10px;
+        margin-top: 30px;
+        font-size: 14px;
+    }
+
+}
+ 
