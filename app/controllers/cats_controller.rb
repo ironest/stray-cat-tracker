@@ -7,10 +7,11 @@ class CatsController < ApplicationController
     end
 
     def create
+        session["cats"].push params["cat"]
+        redirect_to cats_path
     end
 
     def new
-        render plain: "New Cat Web-page"
     end
 
     def show
@@ -46,10 +47,10 @@ class CatsController < ApplicationController
 
         return {
             "name" => Faker::Name.first_name,
-            "location" => Faker::Address.city,
+            "gender" => "Male",
             "color" => "White",
-            "sex" => "Male",
-            "img_id" => img_id
+            "img_id" => img_id,
+            "location" => Faker::Address.city
         }
 
     end
