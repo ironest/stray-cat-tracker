@@ -64,6 +64,52 @@ class CatsController < ApplicationController
         end
     end
 
+    def get_random_cat_color
+        
+        patterns = {
+            "solid-color" => 1,
+            "bi-color" => 2,
+            "tri-color" => 3,
+            "tortoiseshell" => 0,
+            "tabby" => 1
+        }
+        colors = 
+        [
+            "white",
+            "black",
+            "ginger",
+            "grey",
+            "cream",
+            "cinnamon",
+            "fawn"
+        ]
+
+        coat_pattern = patterns.keys.sample
+
+        coat_color = []
+
+        while coat_color.length < patterns[coat_pattern]
+
+            # A whole tabby cat does not have white
+            if coat_pattern == "tabby"
+                colors.delete_at(0)
+            end
+
+            # A multi color cat always has white as base
+            if coat_color.length == 0 && coat_pattern.include?("color")
+                idx = 0
+            else
+                idx = rand(0...colors.length)
+            end
+
+            coat_color.push colors[idx]
+            colors.delete_at(idx)
+        end
+
+        return "#{coat_pattern} #{coat_color.join("/")}".capitalize
+
+    end
+
     def get_new_cat
         img_id = ""
         10.times { img_id << rand(0..9).to_s }
@@ -79,7 +125,7 @@ class CatsController < ApplicationController
         return {
             "name" => name,
             "gender" => gender,
-            "color" => Faker::Color.color_name.capitalize,
+            "color" => get_random_cat_color, #Faker::Color.color_name.capitalize,
             "img_id" => img_id,
             "location" => Faker::Address.city
         }
