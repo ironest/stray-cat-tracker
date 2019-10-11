@@ -50,7 +50,9 @@ header {
     }
 }
 
-#index {
+#index,
+#show
+{
 
     .cat-component__container {
         display: flex;
@@ -176,9 +178,21 @@ header {
                 flex-basis: 70px;
             }
     
-            input {
+            input, select {
                 flex-grow: 1;
                 padding: 3px;
+                line-height: 15px;
+                font-size: 15px;
+                background-color: white;
+                border: 1px solid $orangy-color;
+                border-radius: 0;
+            }
+
+            select {
+                height: 26px;
+                margin: 0;
+                border-radius: 0;
+                height: 26px;
             }
 
             input[type=submit] {
@@ -220,3 +234,42 @@ header {
 
 }
  
+#show {
+    .cat-component__container {
+
+        justify-content: center;
+
+        .cat-info-component {
+            background-color: $salmony-color;
+            width: 230px;
+            min-height: 172px;
+            margin: 20px 15px 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-around;
+            padding: 10px 10px 0 10px;
+
+            &__row {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 10px;
+            }
+
+            p {
+                text-align: right;
+                width: 35%;
+                align-self: flex-end;
+            }
+
+            h3 {
+                text-align: left;
+                width: 55%;
+            }
+
+        }
+
+    }
+}

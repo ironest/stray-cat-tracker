@@ -1,0 +1,36 @@
+<div id="show">
+
+    <div class="cat-component__container">
+
+        <div class="cat-component">
+            <h2 class="cat-component__name"><%=@cat["name"]%></h2>
+            <img class="cat-component__pic" src="https://robohash.org/<%=@cat["img_id"]%>?set=set4">
+            <div class="cat-component__icon-container">
+                <%=link_to(image_tag("info.png", class: "icon"), cat_path(@id))%>
+                <%=link_to(image_tag("edit.png", class: "icon"), edit_cat_path(@id))%>
+                <%=link_to(image_tag("delete.png", class: "icon"), delete_cat_path(@id))%>
+            </div>
+        </div>
+
+        <div class="cat-info-component">
+
+            <div class="cat-info-component__row">
+                <p>Name</p>
+                <h3><%=@cat["name"]%></h3>
+            </div>
+            <div class="cat-info-component__row">
+                <p>Gender</p>
+                <h3><%=@cat["gender"]%></h3>
+            </div>
+            <div class="cat-info-component__row">
+                <p>Color</p>
+                <h3><%=@cat["color"]%></h3>
+            </div>
+            <div class="cat-info-component__row">
+                <p>Location</p>
+                <h3><%=@cat["location"]%></h3>
+            </div>
+        </div>
+    </div>
+
+</div>

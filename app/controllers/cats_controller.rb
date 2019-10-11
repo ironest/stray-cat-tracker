@@ -15,7 +15,10 @@ class CatsController < ApplicationController
     end
 
     def show
-        render plain: "Show Cat Web-page"
+
+        @id = params[:id].to_i
+        @cat = session[:cats][@id]
+
     end
     
     def update
@@ -29,13 +32,21 @@ class CatsController < ApplicationController
     end
 
     def delete
-        render plain: "Delete Cat Web-page"
+
+        @id = params[:id].to_i
+        session[:cats].delete_at(@id)
+
+        if session[:cats].length == 0
+            session.delete(:cats)
+        end
+
+        redirect_to cats_path
     end
 
     def setup_session_movies
         unless session.has_key?(:cats)
             session[:cats] = []
-            4.times do
+            8.times do
                 session[:cats].push get_new_cat
             end
         end
@@ -45,10 +56,18 @@ class CatsController < ApplicationController
         img_id = ""
         10.times { img_id << rand(0..9).to_s }
 
+        if rand(0..1) == 0
+            gender = "Male"
+            name = Faker::Name.male_first_name
+        else
+            gender = "Female"
+            name = Faker::Name.female_first_name
+        end
+
         return {
-            "name" => Faker::Name.first_name,
-            "gender" => "Male",
-            "color" => "White",
+            "name" => name,
+            "gender" => gender,
+            "color" => Faker::Color.color_name,
             "img_id" => img_id,
             "location" => Faker::Address.city
         }
