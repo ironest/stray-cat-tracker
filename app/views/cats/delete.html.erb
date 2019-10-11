@@ -1,0 +1,23 @@
+<div id="delete">
+
+    <div class="cat-component__container">
+
+        <form method="post" action="<%=cat_path(@id)%>" class="cat-delete-component">
+
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <h3>Confirmation request</h3>
+
+            <img class="cat-component__pic" src="https://robohash.org/<%=@cat["img_id"]%>?set=set4">
+            
+            <h3>Delete <%=@cat["name"]%>?</h3>
+
+            <input id="submit" type="submit" name="submit" value="Delete" />
+            
+        </form>
+    </div>
+
+    <%=link_to( "Back to home", cats_path, class: "back-button")%>
+
+</div>

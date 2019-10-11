@@ -33,18 +33,34 @@ class CatsController < ApplicationController
     end
 
     def destroy
-    end
 
-    def delete
+        id = params[:id].to_i
 
-        @id = params[:id].to_i
-        session[:cats].delete_at(@id)
+        puts "DELETE RQUEST: #{id}"
+
+        session[:cats].delete_at(id)
 
         if session[:cats].length == 0
             session.delete(:cats)
         end
 
         redirect_to cats_path
+
+    end
+
+    def delete
+
+        @id = params[:id].to_i
+        @cat = session[:cats][@id]
+
+        # @id = params[:id].to_i
+        # session[:cats].delete_at(@id)
+
+        # if session[:cats].length == 0
+        #     session.delete(:cats)
+        # end
+
+        # redirect_to cats_path
     end
 
     def setup_session_movies
