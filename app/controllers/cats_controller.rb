@@ -15,17 +15,21 @@ class CatsController < ApplicationController
     end
 
     def show
-
         @id = params[:id].to_i
         @cat = session[:cats][@id]
-
     end
     
     def update
+
+        @id = params[:id].to_i
+        session["cats"][@id] = params[:cat]
+        redirect_to cat_path(@id)
+
     end
 
     def edit
-        render plain: "Edit Cat Web-page"
+        @id = params[:id].to_i
+        @cat = session[:cats][@id]
     end
 
     def destroy
@@ -46,7 +50,7 @@ class CatsController < ApplicationController
     def setup_session_movies
         unless session.has_key?(:cats)
             session[:cats] = []
-            8.times do
+            20.times do
                 session[:cats].push get_new_cat
             end
         end

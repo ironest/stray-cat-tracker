@@ -1,0 +1,52 @@
+<div id="new">
+
+    <form method="post" action="<%=cat_path(@id)%>" class="new-cat-component">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="new-cat-component__row">
+            <label>Picture</label>
+            <% image_url = "https://robohash.org/#{@cat["img_id"]}?set=set4" %>
+            <%=image_tag(image_url, class: "pic", id: "gen-cat-pic")%>
+            <input type="hidden" name="cat[img_id]" id="imgIdField" value="<%=@cat["img_id"]%>">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+        <div class="new-cat-component__row">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="cat[name]" value="<%=@cat["name"]%>">
+        </div>
+        <div class="new-cat-component__row">
+            <label for="gender">Gender</label>
+            <select id="gender" class="new-cat-component__row" name="cat[gender]" selected="<%=@cat["gender"]%>">
+                <option value="Male" <%="selected" if @cat["gender"] == "Male" %>>Male</option>
+                <option value="Female" <%="selected" if @cat["gender"] == "Female" %>>Female</option>
+            </select>
+        </div>
+
+        <div class="new-cat-component__row">
+            <label for="color">Color</label>
+            <input id="color" type="text" name="cat[color]" value="<%=@cat["color"]%>">
+        </div>
+
+        <div class="new-cat-component__row">
+            <label for="suburb">Suburb</label>
+            <input id="suburb" type="text" name="cat[location]" value="<%=@cat["location"]%>">
+        </div>
+
+        <div class="new-cat-component__row">
+            <input id="submit" type="submit" name="submit">
+        </div>
+    </form>
+
+    <%=link_to( "Back to home", cats_path, class: "back-button")%>
+
+    <script>
+        imgElement = document.getElementById("gen-cat-pic")
+        imgElement.addEventListener("click", function(){
+            imgId = Math.floor(Math.random() * 10000000000)
+            imgUrl = `https://robohash.org/${imgId}?set=set4`;
+            this.src = imgUrl;
+            document.getElementById("imgIdField").value = imgId
+            this.classList.remove("pic--empty");
+        });
+    </script>
+
+</div>
