@@ -53,20 +53,12 @@ class CatsController < ApplicationController
         @id = params[:id].to_i
         @cat = session[:cats][@id]
 
-        # @id = params[:id].to_i
-        # session[:cats].delete_at(@id)
-
-        # if session[:cats].length == 0
-        #     session.delete(:cats)
-        # end
-
-        # redirect_to cats_path
     end
 
     def setup_session_movies
         unless session.has_key?(:cats)
             session[:cats] = []
-            20.times do
+            7.times do
                 session[:cats].push get_new_cat
             end
         end
@@ -87,7 +79,7 @@ class CatsController < ApplicationController
         return {
             "name" => name,
             "gender" => gender,
-            "color" => Faker::Color.color_name,
+            "color" => Faker::Color.color_name.capitalize,
             "img_id" => img_id,
             "location" => Faker::Address.city
         }
