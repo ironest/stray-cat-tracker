@@ -106,7 +106,7 @@ class CatsController < ApplicationController
             colors.delete_at(idx)
         end
 
-        return "#{coat_pattern} #{coat_color.join("/")}".capitalize
+        return "#{coat_pattern} #{coat_color.join(" ")}".capitalize
 
     end
 
