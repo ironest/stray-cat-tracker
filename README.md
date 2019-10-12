@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Live: [https://stray-cat-tracker.herokuapp.com/cats](https://stray-cat-tracker.herokuapp.com/cats)
 
-Things you may want to cover:
+Repo: [github.com/ironest/stray-cat-tracker](https://github.com/ironest/stray-cat-tracker)
 
-* Ruby version
+Contributors: [Riccardo Carzaniga](https://github.com/ironest)
 
-* System dependencies
+## Description
 
-* Configuration
+Stray-Cat-Tracker comes from an idea of pulling together all those nice people who love cats and are willing to collaborate to track on a centralized online application a database of stray cats info. Eventually, volunteers might visit the reported places to carry out general duties such as feeding, cure, desexing, fostering etc.
 
-* Database creation
+The web app is still a beta, with random generated data but, it allows user to experience every CRUD functionality:
+ * Report a new cat
+ * Inspect details of a cat from the database
+ * Edit/modify a cat information
+ * Delete an entry
 
-* Database initialization
+## Screenshot
 
-* How to run the test suite
+![Sample screen](./docs/sample-screen.png "Sample screen")
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Prerequisites
 
-* ...
+* Ruby version 2.6.3
+
+* Rails
+
+* No database required as the project has been generated with -O option, (--skip-active-record)
+
+* No test suite at this stage
