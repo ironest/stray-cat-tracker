@@ -16,9 +16,13 @@ The web app is still a beta, with random generated data but, it allows user to e
  * Edit/modify a cat information
  * Delete an entry
 
-## Screenshot
+## Screenshots
 
-![Sample screen](./docs/sample-screen.png "Sample screen")
+![home-screen](./docs/home-screen.png "home-screen")
+![show-screen](./docs/show-screen.png "show-screen")
+![edit-screen](./docs/edit-screen.png "edit-screen")
+![delete-screen](./docs/delete-screen.png "delete-screen")
+
 
 
 ## Prerequisites
